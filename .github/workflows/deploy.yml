@@ -20,6 +20,7 @@ jobs:
         run: |
           ssh \
             -o StrictHostKeyChecking=no \
+            -o ConnectTimeout=15 \
             -i ~/.ssh/ec2_key \
-            ${{ secrets.EC2_USER }}@${{ secrets.SSH_HOST }} \
+            "${{ secrets.EC2_USER }}@${{ secrets.SSH_HOST }}" \
             "echo 'GitHub Actions connected successfully!'"
